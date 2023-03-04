@@ -1,0 +1,22 @@
+ python3 -m venv env_full
+source env_full/bin/activate
+pip install django
+pip install djangorestframework
+
+django-admin startproject todo
+python manage.py startapp todo_app
+
+python manage.py makemigrations
+python manage.py migrate
+
+
+
+
+MVT (articture)
+
+M = database
+V = main_core logic
+
+T = templates(REact)
+
+
