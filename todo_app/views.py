@@ -27,3 +27,17 @@ class GetTodoView(ListAPIView):
             
         return queryset
     
+    
+from django.views.generic import ListView
+
+class TodoView(ListView):
+    model = TodoTable
+    template_name = 'todo_view.html'
+    context_object_name = 'todo_obj'
+
+    def get(self, request, *args, **kwargs):
+        my_model_objs = self.get_queryset()
+        self.object_list = my_model_objs
+        context = {self.context_object_name: my_model_objs}
+        return self.render_to_response(context)
+    
